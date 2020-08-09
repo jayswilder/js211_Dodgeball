@@ -1,0 +1,36 @@
+#blue li {
+  color: blue;
+}
+
+#red li {
+  color: red;
+}
+
+#newPeople {
+  display: flex;
+  justify-content: center;
+}
+
+div {
+  padding: 15px;
+}
+
+#listOfPeople {
+  margin-left: 100px;
+  width: 400px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#dodgeBallPlayers {
+  margin-left: 100px;
+  width: 500px;
+}
+
+#blue,
+#red {
+  width: 500px;
+}
