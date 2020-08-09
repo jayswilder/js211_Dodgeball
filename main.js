@@ -1,3 +1,46 @@
+// ======================== CODE PLAN ========================
+
+// Make a class for a player that can use the information from the arrayOfPeople.
+// Make a class that extends the player class for red team & blue team, and assign them a mascot / team color.
+
+// Create an area to show all registered players, with a button that allows them to pick the team they want to be on.
+// When the button for "pick a team" is clicked assign them to either the red team or blue team and assign them the appropriate mascot and team color.
+
+// Create a form to allow new people to be added to the list of players.
+
+// Add a GUI to the DOM to show all information and teams.
+
+
+// ************************** NOTE ************************** 
+// When I tried to install 'npm i' I kept getting an error code and I couldn't figure it out.
+// Unfortunately I couldn't do unit testing because of this.
+// If you know how to correct this so that I can practice unit testing I would greatly appreciate it.
+// I understand I will still lose points, but I struggle with unit testing and could use some practice / help.
+// Thank You.
+// I did, however, console.log the new players and stuff as a work around to show they have all the appropriate parameters.
+// ========================== ERROR ========================== 
+// ===========================================================
+
+//PS C:\Users\Jay\Desktop\ACA\jsDevFolder\js211_Dodgeball> npm i
+// npm WARN saveError ENOENT: no such file or directory, open 'C:\Users\Jay\Desktop\ACA\jsDevFolder\js211_Dodgeball\package.json'
+// npm WARN enoent ENOENT: no such file or directory, open 'C:\Users\Jay\Desktop\ACA\jsDevFolder\js211_Dodgeball\package.json'
+// npm WARN js211_Dodgeball No description
+// npm WARN js211_Dodgeball No repository field.
+// npm WARN js211_Dodgeball No README data
+// npm WARN js211_Dodgeball No license field.
+
+// up to date in 0.472s
+// found 0 vulnerabilities
+
+// ========================== ERROR ==========================
+// ===========================================================
+
+// **********************************************************
+
+// ======================== CODE PLAN ========================
+
+
+
 const arrOfPeople = [
     {
         id: 2,
@@ -262,4 +305,71 @@ const createNewPerson = () => {
         document.getElementById('placeBorn').value = ''
         document.getElementById('experience').value = ''
     }
+}
+
+// Begin by reading the tests and building a function that will full each one.
+// As you build, you might not have to build them in order, maybe you do...
+// These are the tests
+if (typeof describe === 'function') {
+    describe('player', function () {
+        it('should have a the same paramters upon instantiation', function () {
+            // this creates a player with basic information an no skill sets
+            const newPlayer1 = new player(888, 'John Doe', 55, 'chemistry');
+            assert.equal(newPlayer1.id, 888);
+            assert.equal(newPlayer1.name, 'John Doe');
+            assert.equal(newPlayer1.age, 55);
+            assert.equal(newPlayer1.skillSet, 'chemistry');
+            assert.equal(newPlayer1.canDodgeBall, null);
+        });
+
+        it('can assign skills', function () {
+            // test that special skills can be assigned
+
+            const newPlayer1 = new player(888, 'John Doe', 55, 'chemistry');
+            newPlayer1.canThrowBall = '2'
+            newPlayer1.yearsExperience = '4'
+            assert.equal(newPlayer1.canThrowBall, '2');
+            assert.equal(newPlayer1.yearsExperience, '4');
+        });
+    });
+
+    describe('player', function () {
+        it('should have a the same paramters upon instantiation', function () {
+            // this creates a blue player with basic information an shows
+            const newPlayer1 = new blueTeammate(888, 'John Doe', 55, 'chemistry');
+            assert.equal(newPlayer1.id, 888);
+            assert.equal(newPlayer1.name, 'John Doe');
+            assert.equal(newPlayer1.age, 55);
+            assert.equal(newPlayer1.skillSet, 'chemistry');
+            assert.equal(newPlayer1.canDodgeBall, null);
+        });
+
+        it('does assign color and mascot for blue', function () {
+            // shows that color and mascot are assigned
+
+            const newPlayer1 = new blueTeammate(888, 'John Doe', 55, 'chemistry');
+            assert.equal(newPlayer1.color, 'blue');
+            assert.equal(newPlayer1.mascot, 'Elephant');
+        });
+    });
+
+    describe('player', function () {
+        it('should have a the same paramters upon instantiation', function () {
+            // this creates a blue player with basic information an shows
+            const newPlayer1 = new blueTeammate(888, 'John Doe', 55, 'chemistry');
+            assert.equal(newPlayer1.id, 888);
+            assert.equal(newPlayer1.name, 'John Doe');
+            assert.equal(newPlayer1.age, 55);
+            assert.equal(newPlayer1.skillSet, 'chemistry');
+            assert.equal(newPlayer1.canDodgeBall, null);
+        });
+
+        it('does assign color and mascot for red', function () {
+            // shows that color and mascot are assigned
+
+            const newPlayer1 = new redTeammate(888, 'John Doe', 55, 'chemistry');
+            assert.equal(newPlayer1.color, 'red');
+            assert.equal(newPlayer1.mascot, 'Donkey');
+        });
+    });
 }
